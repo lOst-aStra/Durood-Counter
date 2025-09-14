@@ -111,38 +111,38 @@ fun DuroodScreen(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 24.dp, bottom = 16.dp),
+                    .padding(top = 50.dp, bottom = 16.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 ActionButton(
-                    label = "-1",
+                    label = "1",
                     onClick = { viewModel.onDecrement() },
                     enabled = state.count > 0,
                     hapticsEnabled = true,
                     onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) },
                     contentDesc = "minus one decrement",
                     testTag = "action-minus1",
-                    backgroundColor = Color(0xFFE74C3C), // Red
-                    contentColor = Color.White,
+                    backgroundColor = Color(0xFFFFF3B0), // Soft Yellow
+                    contentColor = Color(0xFF1B4F72), // Dark blue-gray to match card text
                     width = 100.dp,
                     height = 70.dp,
                     shape = RoundedCornerShape(20.dp),
-                    fontSizeSp = 16
+                    fontSizeSp = 24
                 )
                 ActionButton(
-                    label = "+1",
+                    label = "1",
                     onClick = { viewModel.onIncrement() },
                     hapticsEnabled = true,
                     onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) },
                     contentDesc = "plus one increment",
                     testTag = "action-plus1",
-                    backgroundColor = Color(0xFF3498DB), // Blue
-                    contentColor = Color.White,
+                    backgroundColor = Color(0xFFB5EAD7), // Soft Green (matching Current Tasbih card)
+                    contentColor = Color(0xFF1B4F72), // Dark blue-gray to match card text
                     width = 100.dp,
                     height = 70.dp,
                     shape = RoundedCornerShape(20.dp),
-                    fontSizeSp = 16
+                    fontSizeSp = 24
                 )
             }
 
@@ -156,32 +156,32 @@ fun DuroodScreen(
             ) {
                 Row(horizontalArrangement = Arrangement.spacedBy(16.dp), verticalAlignment = Alignment.CenterVertically) {
                     ActionButton(
-                        label = "+10",
+                        label = "10",
                         onClick = { viewModel.onBulkPlus10() },
                         hapticsEnabled = true,
                         onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) },
                         contentDesc = "plus ten increment",
                         testTag = "action-plus10",
-                        backgroundColor = Color(0xFF1ABC9C), // Teal
-                        contentColor = Color.White,
+                        backgroundColor = Color(0xFFA7C7E7), // Soft Blue (matching Total Tasbih card)
+                        contentColor = Color(0xFF1B4F72), // Dark blue-gray to match card text
                         width = 90.dp,
                         height = 60.dp,
                         shape = RoundedCornerShape(20.dp),
-                        fontSizeSp = 16
+                        fontSizeSp = 20 // Slightly smaller for "10" and "33" buttons
                     )
                     ActionButton(
-                        label = "+33",
+                        label = "33",
                         onClick = { viewModel.onBulkPlus33() },
                         hapticsEnabled = true,
                         onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) },
                         contentDesc = "plus thirty three increment",
                         testTag = "action-plus33",
-                        backgroundColor = Color(0xFF8E44AD), // Violet
-                        contentColor = Color.White,
+                        backgroundColor = Color(0xFFA7C7E7), // Matching +10 button color
+                        contentColor = Color(0xFF1B4F72), // Dark blue-gray to match card text
                         width = 90.dp,
                         height = 60.dp,
                         shape = RoundedCornerShape(20.dp),
-                        fontSizeSp = 16
+                        fontSizeSp = 20 // Slightly smaller for "10" and "33" buttons
                     )
                 }
             }
@@ -203,12 +203,12 @@ fun DuroodScreen(
                     onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) },
                     contentDesc = "reset counter",
                     testTag = "action-reset",
-                    backgroundColor = Color(0xFFF39C12), // Orange
-                    contentColor = Color.White,
+                    backgroundColor = Color(0xFFFFB6C1), // Soft Red
+                    contentColor = Color(0xFF8B0000), // Darker red for better contrast
                     width = 120.dp,
                     height = 50.dp,
                     shape = RoundedCornerShape(25.dp),
-                    fontSizeSp = 14
+                    fontSizeSp = 16 // Slightly larger for Reset button
                 )
             }
 
