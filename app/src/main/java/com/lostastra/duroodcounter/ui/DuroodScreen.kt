@@ -16,6 +16,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalHapticFeedback
 import com.lostastra.duroodcounter.presentation.CounterViewModel
 import com.lostastra.duroodcounter.ui.components.CounterCard
 import com.lostastra.duroodcounter.ui.components.HeaderArabic
@@ -39,6 +41,7 @@ fun DuroodScreen(
     }
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val haptic = LocalHapticFeedback.current
 
     Scaffold { innerPadding ->
         Column(
@@ -66,7 +69,9 @@ fun DuroodScreen(
             }
 
             PrimaryButton(
-                onClick = { viewModel.onIncrement() }
+                onClick = { viewModel.onIncrement() },
+                hapticsEnabled = true,
+                onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) }
             )
         }
     }
