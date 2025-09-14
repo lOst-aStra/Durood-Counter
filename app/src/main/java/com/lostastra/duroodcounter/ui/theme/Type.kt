@@ -18,6 +18,10 @@ private val NotoNaskhArabic = FontFamily(
     Font(R.font.notonaskharabic_semibold, weight = FontWeight.SemiBold)
 )
 
+// Public aliases for use across UI components
+val LatinRoundedFontFamily: FontFamily = Nunito
+val ArabicFontFamily: FontFamily = NotoNaskhArabic
+
 // Keep a simple mapping: use Nunito for most UI, and selectively use Noto Naskh Arabic where Arabic text is rendered.
 // You can override per-text with Modifier or style.fontFamily = NotoNaskhArabic as needed in UI code.
 val Typography = Typography(

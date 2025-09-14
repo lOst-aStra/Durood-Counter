@@ -12,6 +12,9 @@ class CounterViewModel : ViewModel() {
         _state.value = _state.value.copy(count = _state.value.count + 1)
     }
 
+    // Story 1.2 contract: expose onIncrement() intent
+    fun onIncrement() = increment()
+
     fun reset() {
         _state.value = CounterState()
     }
