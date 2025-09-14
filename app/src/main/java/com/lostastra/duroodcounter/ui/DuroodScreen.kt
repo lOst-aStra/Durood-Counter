@@ -26,6 +26,7 @@ import com.lostastra.duroodcounter.ui.components.PrimaryButton
 import com.lostastra.duroodcounter.ui.components.ActionButton
 import com.lostastra.duroodcounter.di.AppModule
 import androidx.compose.ui.graphics.Color
+import com.lostastra.duroodcounter.ui.components.StatCard
 
 @Composable
 fun DuroodScreen(
@@ -59,6 +60,46 @@ fun DuroodScreen(
             HeaderWidget(
                 modifier = Modifier.fillMaxWidth()
             )
+
+            // Progress tracking cards (Story 2)
+            val currentTasbih = state.count
+            val totalTasbih = state.completedSets * 100 + state.count
+            val totalRecitations = state.completedSets
+
+            // Current Tasbih full-width card
+            StatCard(
+                label = "Current Tasbih",
+                value = currentTasbih,
+                backgroundColor = Color(0xFFE8F8F5),
+                textColor = Color(0xFF145A32),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp)
+            )
+
+            // Row with Total Tasbih and Total Recitations
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                StatCard(
+                    label = "Total Tasbih",
+                    value = totalTasbih,
+                    backgroundColor = Color(0xFFEBF5FB),
+                    textColor = Color(0xFF1B4F72),
+                    modifier = Modifier.weight(1f)
+                )
+                StatCard(
+                    label = "Total Recitations",
+                    value = totalRecitations,
+                    backgroundColor = Color(0xFFF5EBF9),
+                    textColor = Color(0xFF4A235A),
+                    modifier = Modifier.weight(1f)
+                )
+            }
 
             // Counter card in the middle of the screen
             Column(
