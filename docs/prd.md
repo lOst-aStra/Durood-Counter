@@ -131,3 +131,231 @@ Minimal, distraction-free single-screen experience focused on dhikr. Immediate r
 - No navigation for MVP (single screen)
 - Optional haptics toggle may be deferred; initial behavior respects system settings
 - Single developer; time-constrained—prioritize stability and UX polish
+
+## Epic List
+
+- Epic 1: Foundation & Core Counter
+  - Initialize Android app (Kotlin, Compose M3), single-activity MVVM.
+  - Implement counter card with +1 primary action and persistence via DataStore.
+  - Include Arabic header (RTL), basic theme, and haptic feedback.
+
+- Epic 2: Bulk Increments and Decrement Safety
+  - Add +10 and +33 actions with correct rollover into 100s sets.
+  - Implement −1 with guard against negative totals.
+  - Visual feedback and accessibility refinements (tap targets, contrast).
+
+- Epic 3: Session Management and Reset
+  - Two-step confirmation reset flow.
+  - Robust persistence across restarts/force-closes; reliability validation via QA (no analytics).
+  - Edge-case handling and UI polish.
+
+- Epic 4: Performance and UX Polish
+  - Optimize cold start to ≤ 1.5s on mid-tier Android 12 device.
+  - 60fps interaction tuning; battery efficiency.
+  - Typography finalization (Noto Naskh Arabic + Nunito with tnum), spacing, and touch feedback.
+
+## Epic 1: Foundation & Core Counter
+
+### Epic Goal
+Establish a usable, reliable counter app foundation with +1 action, persistence, Arabic header, and basic theming/haptics.
+
+### Story 1.1 Initialize Android app skeleton
+As a developer,
+I want a Kotlin + Compose M3 single-activity project scaffold,
+so that I can implement the core counter UI quickly and cleanly.
+
+#### Acceptance Criteria
+1: Project uses Kotlin + Compose M3 with Single-Activity + MVVM setup
+2: App builds and runs on Android 12+ device/emulator
+3: Basic theme and typography applied
+
+### Story 1.2 Counter UI with +1 action
+As a user,
+I want a large +1 button to increment the counter,
+so that I can recite and track counts easily.
+
+#### Acceptance Criteria
+1: Large, centered +1 button increments visible counter
+2: Counter is legible with rounded numeric font (e.g., Nunito; tabular numerals if available)
+3: Arabic Durood header visible with RTL support
+
+### Story 1.3 Persist counts with DataStore
+As a user,
+I want my count to persist across restarts,
+so that I don’t lose progress until I reset intentionally.
+
+#### Acceptance Criteria
+1: Count restored on app launch after process death/restart
+2: DataStore used for persistence with atomic writes
+3: No network/analytics dependencies introduced
+
+### Story 1.4 Haptic feedback and basic polish
+As a user,
+I want subtle haptic feedback on primary actions,
+so that interactions feel responsive without being distracting.
+
+#### Acceptance Criteria
+1: Haptics on +1 tap (respect device/user settings)
+2: Visual feedback on press
+3: No regressions in performance targets for this epic
+
+## Epic 2: Bulk Increments and Decrement Safety
+
+### Epic Goal
+Complete core counting workflows by adding bulk increments with correct rollover and safe decrement behavior, improving usability and accessibility.
+
+### Story 2.1 Add +10 action with rollover
+As a user,
+I want a +10 button,
+so that I can quickly add common sets aligned with my practice.
+
+#### Acceptance Criteria
+1: Tapping +10 increases the current count by 10
+2: Correct rollover into 100s (e.g., 95 + 10 → 05 and increment completed-sets counter if applicable)
+3: Visual feedback on tap; performance remains smooth (no dropped frames)
+
+### Story 2.2 Add +33 action with rollover
+As a user,
+I want a +33 button,
+so that I can follow common dhikr increments efficiently.
+
+#### Acceptance Criteria
+1: Tapping +33 increases the current count by 33
+2: Correct rollover into 100s as above (carry logic mirrors +10)
+3: Visual feedback on tap; respects haptics settings
+
+### Story 2.3 Decrement with guard against negatives
+As a user,
+I want a −1 button that never produces a negative total,
+so that I can safely correct mistakes without breaking the count.
+
+#### Acceptance Criteria
+1: Tapping −1 reduces the count by 1 but never below 0
+2: If using a “completed sets” counter, decrement logic never produces invalid state
+3: Clear UI state when at zero (e.g., disabled/soft state for −1)
+
+### Story 2.4 Accessibility and interaction refinements
+As a user,
+I want large, comfortable tap targets and clear visual feedback,
+so that the app is easy and pleasant to use across devices.
+
+#### Acceptance Criteria
+1: All interactive elements meet minimum touch target guidance
+2: Contrast and feedback align with Accessibility goals
+3: RTL header and numeric legibility remain intact
+
+## Epic 3: Session Management and Reset
+
+### Epic Goal
+Provide intentional session control and resilience: reliable persistence across restarts/force-closes and a clear two-step reset flow, plus polish.
+
+### Story 3.1 Two-step confirmation reset
+As a user,
+I want a clear two-step confirmation before resetting,
+so that I don’t accidentally lose my session.
+
+#### Acceptance Criteria
+1: Reset flow requires explicit confirmation (e.g., dialog with clear messaging)
+2: After confirmation, both current count (and completed-sets counter if present) reset to baseline
+3: Visual state reflects reset immediately; focus returns to primary action
+
+### Story 3.2 Robust persistence across lifecycle and force-close
+As a user,
+I want my counts to be safe across device restarts and app force-closes,
+so that I don’t lose progress unexpectedly.
+
+#### Acceptance Criteria
+1: DataStore writes are atomic and consistent during rapid taps and app backgrounding
+2: Verified restore after process death and force-close relaunch paths
+3: No data corruption or stale state on resume
+
+### Story 3.3 Reliability validation and edge-case handling
+As a PM/QA,
+I want validation against common edge cases,
+so that reliability targets are met without analytics or tracking.
+
+#### Acceptance Criteria
+1: Define and verify a checklist for edge cases (e.g., rapid +1 spam, reset during write, low-memory kill)
+2: In-app debug build logging behind a flag (no PII, no network)
+3: Meets persistence reliability target (≥ 99% across force-closes/restarts) in test runs
+
+### Story 3.4 UI polish and affordances
+As a user,
+I want consistent polish that reinforces clarity and intent,
+so that the app feels trustworthy and calm.
+
+#### Acceptance Criteria
+1: Reset affordance is visible but not distracting; spacing and hierarchy refined
+2: Clear empty/zero state visuals; no ambiguous states after reset
+3: Micro-interactions align with performance and accessibility targets
+
+## Epic 4: Performance and UX Polish
+
+### Epic Goal
+Meet performance targets and elevate UX polish to ensure a smooth, reliable, and delightful experience on Android 12+ devices.
+
+### Story 4.1 Optimize cold start performance
+As a user,
+I want the app to open quickly,
+so that I can start counting without delay.
+
+#### Acceptance Criteria
+1: Cold start ≤ 1.5s on a mid-tier Android 12 device
+2: Measure with consistent methodology (e.g., Android Studio profiler) and document result
+3: No functional regressions while achieving the target
+
+### Story 4.2 60fps interaction and battery efficiency
+As a user,
+I want smooth interactions that feel responsive,
+so that the app feels reliable and pleasant.
+
+#### Acceptance Criteria
+1: No visible jank during rapid taps and state updates
+2: Avoid unnecessary recompositions; confirm stability with tooling
+3: No battery-draining loops or excessive wake-ups observed in basic profiling
+
+### Story 4.3 Typography and legibility refinement
+As a user,
+I want consistently legible text and numerals,
+so that I can read and interact comfortably.
+
+#### Acceptance Criteria
+1: Arabic header uses Noto Naskh Arabic (verify ligature quality); RTL works throughout
+2: Numeric counters use Nunito (or similar rounded Latin) with tabular numerals if available
+3: Line-height, spacing, and contrast tuned for common device sizes
+
+### Story 4.4 UI spacing, touch feedback, and micro-interactions
+As a user,
+I want clean spacing and clear feedback,
+so that the interface feels calm and intentional.
+
+#### Acceptance Criteria
+1: Spacing/hierarchy refined (cards, paddings, margins)
+2: Touch states/haptics are consistent and not distracting
+3: Visual polish does not regress accessibility targets (tap size, contrast)
+
+## Checklist Results Report
+
+Before running the checklist and drafting the prompts, we can output the full updated PRD. Once confirmed, we will execute the PM checklist and populate the results below.
+
+### PM Checklist Results
+- [Pending] To be populated after running `.bmad-core/checklists/pm-checklist.md` via the checklist execution task.
+
+## Next Steps
+
+### UX Expert Prompt
+Design a minimal, single-screen counter app for Android that helps users track Durood recitations. The app must include:
+
+- A prominent Arabic header displaying the Durood Shareef text in a beautiful, legible Arabic font (Noto Naskh Arabic) with RTL support.
+- A large, centered +1 button as the primary action for incrementing the count.
+- Quick-add buttons for +10 and +33 with correct rollover into 100s sets.
+- A -1 button that guards against negative totals (disabled at zero).
+- A reset button with a two-step confirmation to prevent accidental loss.
+- High legibility: use a rounded Latin font (Nunito) with tabular numerals for consistent alignment.
+- Accessibility: large tap targets (minimum 48dp), high-contrast friendly color scheme, and clear visual feedback on interactions.
+- Calm aesthetic: use a clean, distraction-free layout with a spiritual feel. Avoid any unnecessary elements.
+
+The design must prioritize simplicity and speed, allowing users to start counting within 1-2 seconds of opening the app. Persistence of counts across app restarts is assumed (handled by the technical team). The UI should be offline-first with no ads or analytics.
+
+### Architect Prompt
+Using this PRD as input, create a concise architecture prompt for an Android 12+ Kotlin + Jetpack Compose single-activity app using MVVM and DataStore persistence. Ensure offline-first assumptions, performance targets (≤1.5s cold start, 60fps), and typography choices (Noto Naskh Arabic, Nunito with tabular numerals) are respected. Emphasize testability and reliability across lifecycle/force-close scenarios.
