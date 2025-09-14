@@ -21,13 +21,17 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
 import com.lostastra.duroodcounter.presentation.CounterViewModel
-import com.lostastra.duroodcounter.ui.components.CounterCard
 import com.lostastra.duroodcounter.ui.components.HeaderWidget
-import com.lostastra.duroodcounter.ui.components.PrimaryButton
 import com.lostastra.duroodcounter.ui.components.ActionButton
 import com.lostastra.duroodcounter.di.AppModule
 import androidx.compose.ui.graphics.Color
 import com.lostastra.duroodcounter.ui.components.StatCard
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.foundation.shape.RoundedCornerShape
 
 @Composable
 fun DuroodScreen(
@@ -47,6 +51,7 @@ fun DuroodScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val haptic = LocalHapticFeedback.current
+    val showResetDialog = remember { mutableStateOf(false) }
 
     Scaffold(containerColor = Color.Transparent) { innerPadding ->
         Column(
@@ -105,12 +110,12 @@ fun DuroodScreen(
             // Spacer to push controls to bottom
             Spacer(modifier = Modifier.weight(1f))
 
-            // Controls row: -1 and +1
+            // Controls row: -1 (left below Total Tasbih) and +1 (right below Total Recitations)
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 8.dp),
-                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 ActionButton(
@@ -120,12 +125,27 @@ fun DuroodScreen(
                     hapticsEnabled = true,
                     onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) },
                     contentDesc = "minus one decrement",
-                    testTag = "action-minus1"
+                    testTag = "action-minus1",
+                    backgroundColor = Color(0xFFE74C3C), // Red
+                    contentColor = Color.White,
+                    width = 60.dp,
+                    height = 40.dp,
+                    shape = RoundedCornerShape(12.dp),
+                    fontSizeSp = 16
                 )
-                PrimaryButton(
+                ActionButton(
+                    label = "+1",
                     onClick = { viewModel.onIncrement() },
                     hapticsEnabled = true,
-                    onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) }
+                    onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) },
+                    contentDesc = "plus one increment",
+                    testTag = "action-plus1",
+                    backgroundColor = Color(0xFF3498DB), // Blue
+                    contentColor = Color.White,
+                    width = 60.dp,
+                    height = 40.dp,
+                    shape = RoundedCornerShape(12.dp),
+                    fontSizeSp = 16
                 )
             }
 
@@ -134,26 +154,82 @@ fun DuroodScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 12.dp, bottom = 4.dp),
-                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Row(horizontalArrangement = Arrangement.spacedBy(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                    ActionButton(
+                        label = "+10",
+                        onClick = { viewModel.onBulkPlus10() },
+                        hapticsEnabled = true,
+                        onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) },
+                        contentDesc = "plus ten increment",
+                        testTag = "action-plus10",
+                        backgroundColor = Color(0xFF1ABC9C), // Teal
+                        contentColor = Color.White,
+                        width = 70.dp,
+                        height = 40.dp,
+                        shape = RoundedCornerShape(12.dp),
+                        fontSizeSp = 16
+                    )
+                    ActionButton(
+                        label = "+33",
+                        onClick = { viewModel.onBulkPlus33() },
+                        hapticsEnabled = true,
+                        onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) },
+                        contentDesc = "plus thirty three increment",
+                        testTag = "action-plus33",
+                        backgroundColor = Color(0xFF8E44AD), // Violet
+                        contentColor = Color.White,
+                        width = 70.dp,
+                        height = 40.dp,
+                        shape = RoundedCornerShape(12.dp),
+                        fontSizeSp = 16
+                    )
+                }
+            }
+
+            // Reset button below all, centered
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 4.dp),
+                horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 ActionButton(
-                    label = "+10",
-                    onClick = { viewModel.onBulkPlus10() },
+                    label = "Reset",
+                    onClick = { showResetDialog.value = true },
                     hapticsEnabled = true,
                     onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) },
-                    contentDesc = "plus ten increment",
-                    testTag = "action-plus10"
+                    contentDesc = "reset counter",
+                    testTag = "action-reset",
+                    backgroundColor = Color(0xFFF39C12), // Orange
+                    contentColor = Color.White,
+                    width = 96.dp,
+                    height = 40.dp,
+                    shape = RoundedCornerShape(12.dp),
+                    fontSizeSp = 14
                 )
-                ActionButton(
-                    label = "+33",
-                    onClick = { viewModel.onBulkPlus33() },
-                    hapticsEnabled = true,
-                    onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) },
-                    contentDesc = "plus thirty three increment",
-                    testTag = "action-plus33"
+            }
+
+            if (showResetDialog.value) {
+                AlertDialog(
+                    onDismissRequest = { showResetDialog.value = false },
+                    title = { Text(text = "Confirm Reset") },
+                    text = { Text(text = "Are you sure you want to reset the Current Tasbih count?") },
+                    confirmButton = {
+                        TextButton(onClick = {
+                            viewModel.onReset()
+                            showResetDialog.value = false
+                        }) { Text(text = "Yes") }
+                    },
+                    dismissButton = {
+                        TextButton(onClick = { showResetDialog.value = false }) { Text(text = "No") }
+                    }
                 )
             }
         }
     }
 }
+
