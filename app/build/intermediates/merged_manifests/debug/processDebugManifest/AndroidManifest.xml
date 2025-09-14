@@ -21,7 +21,8 @@
         android:extractNativeLibs="false"
         android:label="DuroodCounter"
         android:supportsRtl="true"
-        android:testOnly="true" >
+        android:testOnly="true"
+        android:theme="@style/Theme.DuroodCounter" >
         <activity
             android:name="com.lostastra.duroodcounter.MainActivity"
             android:exported="true" >

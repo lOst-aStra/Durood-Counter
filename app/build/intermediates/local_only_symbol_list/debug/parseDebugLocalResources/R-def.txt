@@ -1,9 +1,14 @@
 R_DEF: Internal format may change without notice
 local
+drawable ic_launcher_background
 font notonaskharabic_semibold
 font nunito_semibold
+mipmap ic_launcher
+mipmap ic_launcher_foreground
+mipmap ic_launcher_round
 string app_name
 string cd_icon_crescent
 string cd_icon_star
 string durood_shareef_full
 string durood_shareef_title
+style Theme.DuroodCounter

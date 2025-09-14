@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:2:1-18:12
-INJECTED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:2:1-18:12
-INJECTED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:2:1-18:12
-INJECTED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:2:1-18:12
+ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:2:1-19:12
 MERGED from [androidx.compose.material3:material3-android:1.3.2] C:\Users\Aslam\.gradle\caches\9.0-milestone-1\transforms\a57792b633476d00bccfd8ac20677621\transformed\material3-release\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.material:material-android:1.8.2] C:\Users\Aslam\.gradle\caches\9.0-milestone-1\transforms\e41dd0f041a158fe347e28802563f0f7\transformed\material-release\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.material:material-ripple-android:1.8.2] C:\Users\Aslam\.gradle\caches\9.0-milestone-1\transforms\62fca5fb9e48e2e7b238f7a59ad3e203\transformed\material-ripple-release\AndroidManifest.xml:2:1-7:12
@@ -65,8 +65,8 @@ MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Aslam\.gradle\cache
 	xmlns:android
 		ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:5:5-17:19
-INJECTED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:5:5-17:19
+ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:5:5-18:19
+INJECTED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:5:5-18:19
 MERGED from [androidx.compose.ui:ui-tooling-android:1.8.2] C:\Users\Aslam\.gradle\caches\9.0-milestone-1\transforms\7b95180315db522ed028ee0555c78362\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-tooling-android:1.8.2] C:\Users\Aslam\.gradle\caches\9.0-milestone-1\transforms\7b95180315db522ed028ee0555c78362\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-test-manifest:1.8.2] C:\Users\Aslam\.gradle\caches\9.0-milestone-1\transforms\fc9a214719517e114dcab97e7f5b0879\transformed\ui-test-manifest-1.8.2\AndroidManifest.xml:22:5-27:19
@@ -88,27 +88,29 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Aslam\.gradle\cach
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] C:\Users\Aslam\.gradle\caches\9.0-milestone-1\transforms\9ad209ebfd9137aa424fc24b918f3a45\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:8:9-35
+		ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:9:9-35
 	android:label
 		ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:7:9-38
 	android:allowBackup
 		ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:8:9-51
 activity#com.lostastra.duroodcounter.MainActivity
-ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:9:9-16:20
+ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:10:9-17:20
 	android:exported
-		ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:11:13-36
+		ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:12:13-36
 	android:name
-		ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:10:13-41
+		ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:11:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:12:13-15:29
+ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:13:13-16:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:13:17-69
+ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:14:17-69
 	android:name
-		ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:13:25-66
+		ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:14:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:14:17-77
+ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:15:17-77
 	android:name
-		ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:14:27-74
+		ADDED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml:15:27-74
 uses-sdk
 INJECTED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Aslam\Desktop\DuroodCounter\app\src\main\AndroidManifest.xml

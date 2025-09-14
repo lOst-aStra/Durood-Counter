@@ -5,4 +5,18 @@
     <string name="cd_icon_star">star icon</string>
     <string name="durood_shareef_full">اَللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَّعَلَى آلِ مُحَمَّدٍ وَبَارِكْ وَسَلِّمْ</string>
     <string name="durood_shareef_title">Durud Shareef</string>
+    <style name="Theme.DuroodCounter" parent="android:Theme.Material.Light.NoActionBar">
+        
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        
+        
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        
+        
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
 </resources>

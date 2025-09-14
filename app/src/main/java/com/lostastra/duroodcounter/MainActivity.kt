@@ -6,19 +6,25 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Scaffold
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
-import com.lostastra.duroodcounter.ui.theme.DuroodCounterTheme
+import androidx.core.view.WindowCompat
 import com.lostastra.duroodcounter.ui.DuroodScreen
+import com.lostastra.duroodcounter.ui.theme.DuroodCounterTheme
 import com.lostastra.duroodcounter.ui.theme.md_background
 import com.lostastra.duroodcounter.ui.theme.md_surface
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Enable edge-to-edge
+        window.statusBarColor = android.graphics.Color.TRANSPARENT
+        window.navigationBarColor = android.graphics.Color.TRANSPARENT
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        
         setContent {
             DuroodCounterTheme {
                 AppScaffold()
@@ -35,16 +41,15 @@ private fun AppScaffold() {
             md_surface
         )
     )
+    
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(gradient)
+            .systemBarsPadding()
     ) {
-        Scaffold(
-            modifier = Modifier.fillMaxSize(),
-            containerColor = Color.Transparent
-        ) { _ ->
-            DuroodScreen()
-        }
+        DuroodScreen(
+            modifier = Modifier.fillMaxSize()
+        )
     }
 }

@@ -35,6 +35,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 
 @Composable
 fun DuroodScreen(
+    modifier: Modifier = Modifier,
     viewModel: CounterViewModel = run {
         val context = LocalContext.current
         viewModel(factory = object : ViewModelProvider.Factory {
@@ -53,7 +54,10 @@ fun DuroodScreen(
     val haptic = LocalHapticFeedback.current
     val showResetDialog = remember { mutableStateOf(false) }
 
-    Scaffold(containerColor = Color.Transparent) { innerPadding ->
+    Scaffold(
+        modifier = modifier,
+        containerColor = Color.Transparent
+    ) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
