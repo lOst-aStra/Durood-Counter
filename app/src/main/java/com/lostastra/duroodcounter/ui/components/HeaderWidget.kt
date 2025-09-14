@@ -107,11 +107,6 @@ fun HeaderWidget(
             }
         }
 
-        // Arabic line directly below title
-        HeaderArabic(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 6.dp)
-        )
+        // Removed Arabic line below title as per design update
     }
 }

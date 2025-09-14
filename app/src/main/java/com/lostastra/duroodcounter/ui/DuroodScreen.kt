@@ -3,6 +3,7 @@ package com.lostastra.duroodcounter.ui
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -101,18 +102,8 @@ fun DuroodScreen(
                 )
             }
 
-            // Counter card in the middle of the screen
-            Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                CounterCard(
-                    count = state.count
-                )
-            }
+            // Spacer to push controls to bottom
+            Spacer(modifier = Modifier.weight(1f))
 
             // Controls row: -1 and +1
             Row(
