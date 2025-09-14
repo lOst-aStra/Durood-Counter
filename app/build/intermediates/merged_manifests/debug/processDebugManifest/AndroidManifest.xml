@@ -20,7 +20,8 @@
         android:debuggable="true"
         android:extractNativeLibs="false"
         android:label="DuroodCounter"
-        android:supportsRtl="true" >
+        android:supportsRtl="true"
+        android:testOnly="true" >
         <activity
             android:name="com.lostastra.duroodcounter.MainActivity"
             android:exported="true" >

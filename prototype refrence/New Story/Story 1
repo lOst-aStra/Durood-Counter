@@ -1,0 +1,29 @@
+Story 1 – Durood Display Screen
+Story Statement
+
+As a user, I want to see the Durood clearly displayed on my screen, so I can recite it comfortably while keeping track of tasbih counts below.
+
+UI / UX Specifications
+Durood Display Card
+
+Position: Centered in the top half of the screen.
+
+Shape: Rounded rectangle (radius 20px).
+
+Background: Soft off-white (#FAFAFA).
+
+Shadow: Subtle (2px blur, light gray #E0E0E0).
+
+Padding: 20px inside.
+
+Text:
+
+Content: Only the Arabic Durood.
+
+Font: Default app font.
+
+Size: 24px.
+
+Color: Black (#000000).
+
+Alignment: Centered.

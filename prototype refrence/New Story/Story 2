@@ -1,0 +1,51 @@
+Story 2 – Tasbih Counter & Progress Tracking
+Story Statement
+
+As a user, I want to track my current tasbih, total tasbih, and total recitations in separate cards, so that I can monitor my progress clearly.
+
+UI / UX Specifications
+Current Tasbih Count Card
+
+Shape: Rounded rectangle (radius 15px).
+
+Background: Light green tint (#E8F8F5).
+
+Text:
+
+Label: “Current Tasbih” – 14px, bold, dark green (#145A32).
+
+Count: 28px, bold, dark green (#145A32).
+
+Position: First card below Durood display card.
+
+Size: Full width minus 30px margin.
+
+Description: Shows tasbih count for the current cycle/session.
+
+Total Tasbih Count Card
+
+Background: Light blue tint (#EBF5FB).
+
+Text:
+
+Label: “Total Tasbih” – 14px, bold, dark blue (#1B4F72).
+
+Count: 28px, bold, dark blue (#1B4F72).
+
+Position: Left side of row (side-by-side).
+
+Description: Shows the overall tasbih beads counted in total.
+
+Total Recitation Count Card
+
+Background: Light purple tint (#F5EBF9).
+
+Text:
+
+Label: “Total Recitations” – 14px, bold, dark purple (#4A235A).
+
+Count: 28px, bold, dark purple (#4A235A).
+
+Position: Right side of row (side-by-side with Total Tasbih card).
+
+Description: Shows the total number of times the Durood has been completed.

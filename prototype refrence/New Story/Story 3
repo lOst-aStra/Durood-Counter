@@ -1,0 +1,77 @@
+Story 3 – Controls & Buttons
+Story Statement
+
+As a user, I want simple and clear buttons to increase, decrease, or reset my tasbih counts, so I can control my counting easily.
+
+UI / UX Specifications
++1 Button
+
+Shape: Rounded rectangle.
+
+Color: Blue (#3498DB).
+
+Text: White “+1” (16px, bold).
+
+Size: 60px × 40px.
+
+Placement: Right side below of total recitation count card.
+
+Description: Increases Current Tasbih Count by 1.
+
+-1 Button
+
+Shape: Rounded rectangle.
+
+Color: Red (#E74C3C).
+
+Text: White “-1” (16px, bold).
+
+Size: 60px × 40px.
+
+Placement: Left side below of total tasbih count card.
+
+Description: Decreases Current Tasbih Count by 1.
+
++10 Button
+
+Shape: Rounded rectangle.
+
+Color: Teal (#1ABC9C).
+
+Text: White “+10” (16px, bold).
+
+Size: 70px × 40px.
+
+Placement: below -1 button Centered horizontally — slightly left of center, side-by-side with +33 button.
+
+Description: Increases Current Tasbih Count by 10.
+
++33 Button
+
+Shape: Rounded rectangle.
+
+Color: Violet (#8E44AD).
+
+Text: White “+33” (16px, bold).
+
+Size: 70px × 40px.
+
+Placement: below +10 button Centered horizontally — slightly right of center, side-by-side with +10 button.
+
+Description: Increases Current Tasbih Count by 33.
+
+Reset Button
+
+Shape: Rounded rectangle.
+
+Color: Orange (#F39C12).
+
+Text: White “Reset” (14px, bold).
+
+Placement: Below all counter cards, centered.
+
+Description: When pressed, shows a confirmation dialog:
+
+“Are you sure you want to reset the Current Tasbih count?”
+
+Options: Yes (resets count to 0) / No (cancel action).

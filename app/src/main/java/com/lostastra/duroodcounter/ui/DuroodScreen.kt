@@ -24,6 +24,7 @@ import com.lostastra.duroodcounter.ui.components.CounterCard
 import com.lostastra.duroodcounter.ui.components.HeaderWidget
 import com.lostastra.duroodcounter.ui.components.PrimaryButton
 import com.lostastra.duroodcounter.ui.components.ActionButton
+import com.lostastra.duroodcounter.ui.components.DuroodCard
 import com.lostastra.duroodcounter.di.AppModule
 import androidx.compose.ui.graphics.Color
 
@@ -66,10 +67,16 @@ fun DuroodScreen(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                CounterCard(
-                    count = state.count
+                // Top-half: Durood display card
+                DuroodCard(
+                    modifier = Modifier.fillMaxWidth()
                 )
             }
+
+            // Counts below the Durood card
+            CounterCard(
+                count = state.count
+            )
 
             // Controls row: -1 and +1
             Row(
