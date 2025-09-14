@@ -3,4 +3,7 @@ local
 font notonaskharabic_semibold
 font nunito_semibold
 string app_name
+string cd_icon_crescent
+string cd_icon_star
 string durood_shareef_full
+string durood_shareef_title

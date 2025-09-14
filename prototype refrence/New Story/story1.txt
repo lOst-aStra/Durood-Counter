@@ -1,0 +1,27 @@
+Story 1: Add header + Arabic phrase and global dark theme
+
+Story statement:
+Replace the current top bar with the centered “Durud Shareef” title flanked by moon & star icons and add the Arabic phrase below the title; update global theme to the reference dark gradient.
+
+Why:
+The header defines brand identity and must match the reference for visual parity and correct Arabic rendering.
+
+Acceptance criteria (AC):
+1. Title reads “Durud Shareef” and is horizontally centered at the top with a crescent moon icon to the left and a star to the right; icons match the reference shapes and colors.
+2. Arabic line appears directly below the title, displayed with an Arabic font that supports diacritics and rendered RTL; its visual weight and spacing match the reference.
+3. Global background uses a two-tone dark gradient and the page looks and feels like the reference screenshot.
+4. Visual verification: header area pixel layout matches the reference within ±4 px on major elements.
+
+Dev tasks:
+- Create Header component / widget (e.g., HeaderWidget).
+- Add SVG icons: crescent moon (left) and star (right).
+- Center the title text “Durud Shareef”, apply correct font weight and size.
+- Add Arabic text element below the title, use `dir="rtl"` and load a high-quality Arabic webfont (e.g., Noto Naskh Arabic or Scheherazade).
+- Implement global background gradient (CSS body or app Scaffold background).
+- Adjust safe-area/top padding to match spacing in reference.
+- Add visual QA step: capture screenshot and compare header area.
+
+Testing notes:
+- Widget test to assert header elements present.
+- Manual visual QA screenshot for pixel comparison.
+- Accessibility check: title and icons have accessible labels.

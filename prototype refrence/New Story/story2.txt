@@ -1,0 +1,24 @@
+Story 2: Implement central rounded card, counter and progress bar
+
+Story statement:
+Create the central rounded card containing label “Current Tasbeeh”, large numeric counter, `/goal` indicator and thin progress bar.
+
+Why:
+The central card is the primary focus area where users track progress. It must match reference for clarity and user engagement.
+
+Acceptance criteria (AC):
+1. Card has rounded corners and inner padding matching reference.
+2. Big counter uses teal accent color and size similar to reference; `/100` is shown as smaller muted text.
+3. A thin horizontal progress bar appears under the counter; increments animate smoothly as the counter changes.
+
+Dev tasks:
+- Build TasbeehCard component with container style: borderRadius 20–24px, padding ~30px, subtle inner background.
+- Add label: "Current Tasbeeh" centered at top of card (14px, muted color).
+- Add primary counter: large numeric display using heavy/tall numeric font. Include smaller "/ 100" under the number.
+- Implement progress bar calculation: width = sessionCount / sessionGoal * 100%.
+- Add animation to animate width changes and counter scale on increment.
+- Add unit tests for progress computation and state updates.
+
+Testing notes:
+- Unit tests for progress calculation.
+- Visual QA to validate sizes, spacing and color.

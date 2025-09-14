@@ -1,0 +1,25 @@
+Story 5: Correct counter behavior (increments, overflow, totals)
+
+Story statement:
+Ensure counter logic matches rules described earlier: increments, decrements, bulk increments, overflow handling, session completion increases total completed.
+
+Why:
+Correct arithmetic behavior is essential to user trust and feature correctness.
+
+Acceptance criteria (AC):
+1. Increment by +1, +10, +33 adjust sessionCount correctly.
+2. If sessionCount + increment >= sessionGoal compute completedSessions = floor((sessionCount + increment)/sessionGoal), update totalCompleted accordingly and set sessionCount = (sessionCount + increment) % sessionGoal.
+3. Decrement stops at 0 (no negatives).
+4. When session completes an animation/celebration triggers and Total Tasbeeh Completed increments.
+
+Dev tasks:
+- Implement CounterService with functions: increment(n), decrement(n), computeOverflow(increment).
+- Implement sessionGoal default = 100 (configurable).
+- On increment: compute overflow, update sessionCount and totalCompleted and totalRecitations.
+- Trigger UI animations for every completed session (or aggregated visual when multiple completed).
+- Implement toasts or small modal: "Session complete +1" when completed.
+- Add unit tests covering edge cases: e.g., 98 + 33 -> completedSessions = 1, remainder = 31; 200 + 33 -> multiple completions logic.
+
+Testing notes:
+- Extensive unit tests on arithmetic and overflow.
+- Integration test: simulate button presses and verify totals and sessionCount stored correctly.

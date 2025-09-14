@@ -1,0 +1,22 @@
+Story 6: Add Reset Session flow and footer message
+
+Story statement:
+Add reset session button under card with confirm modal and small footer message “May Allah accept your dhikr and grant you His blessings”.
+
+Why:
+Users need a quick way to restart a session; footer adds warmth and context.
+
+Acceptance criteria (AC):
+1. Reset shows confirmation modal with "Yes / Cancel".
+2. On Yes: sessionCount resets to 0 but totals remain (unless explicitly cleared by separate action).
+3. Footer text present and visually matched to the reference.
+
+Dev tasks:
+- Add ResetSessionControl component below the card.
+- Add confirmation dialog on tap with accessible labels.
+- Wire to reset only current sessionCount; do not modify totals unless there's a separate "clear stats" action.
+- Add footer text element centered at bottom.
+
+Testing notes:
+- Unit test: verify reset clears sessionCount and persists.
+- UX test: verify confirmation and cancel behavior.

@@ -1,0 +1,24 @@
+Story 4: Replace control layout with left - button, center quick increments, right circular + button
+
+Story statement:
+Implement the exact control positioning and styles: small circular `-` on left, small pill `+10` and `+33` in center-bottom, large circular gradient `+` on right.
+
+Why:
+Controls must be prominent, touch-friendly, and mirror the reference layout for usability.
+
+Acceptance criteria (AC):
+1. Buttons sizes, shapes and colors match reference.
+2. Buttons have accessible labels and press feedback (scale & shadow).
+3. Layout responsive and maintains relative placement on varying screen widths.
+
+Dev tasks:
+- Build ControlRow component.
+- Implement DecrementButton: circular ~56px, dark teal, white '-' icon.
+- Implement QuickIncrementButtons: pill buttons ~56x36 px for +10 and +33 centered.
+- Implement PrimaryIncrementButton: circular 80–96px with gradient, centered '+' glyph, shadow and press animation.
+- Add accessible aria/semantics for buttons.
+- Add press/tap animations (scale 0.96 and shadow intensity change).
+
+Testing notes:
+- Touch-target tests to ensure minimum 44x44 dp for tappable controls.
+- Visual QA for placement and sizes.

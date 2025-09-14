@@ -21,10 +21,11 @@ import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
 import com.lostastra.duroodcounter.presentation.CounterViewModel
 import com.lostastra.duroodcounter.ui.components.CounterCard
-import com.lostastra.duroodcounter.ui.components.HeaderArabic
+import com.lostastra.duroodcounter.ui.components.HeaderWidget
 import com.lostastra.duroodcounter.ui.components.PrimaryButton
 import com.lostastra.duroodcounter.ui.components.ActionButton
 import com.lostastra.duroodcounter.di.AppModule
+import androidx.compose.ui.graphics.Color
 
 @Composable
 fun DuroodScreen(
@@ -45,7 +46,7 @@ fun DuroodScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     val haptic = LocalHapticFeedback.current
 
-    Scaffold { innerPadding ->
+    Scaffold(containerColor = Color.Transparent) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -54,7 +55,7 @@ fun DuroodScreen(
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            HeaderArabic(
+            HeaderWidget(
                 modifier = Modifier.fillMaxWidth()
             )
 

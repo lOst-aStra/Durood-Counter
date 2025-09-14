@@ -1,0 +1,21 @@
+Story 3: Add “Total Tasbeeh Completed” inset panel
+
+Story statement:
+Inside the card add the inset rounded panel that displays a heart icon, total completed sessions count, and the line “Total recitations: X”.
+
+Why:
+Shows cumulative progress and gives users a sense of accomplishment.
+
+Acceptance criteria (AC):
+1. Panel visually matches reference: rounded, darker, with heart icon and correct typography.
+2. The total updates when a session completes and reflects cumulative recitations.
+
+Dev tasks:
+- Create TotalsPanel component inside TasbeehCard.
+- Add heart icon (SVG) and layout: icon left, big total number to the right, subtitle under number: "Total recitations: X".
+- Style panel as inset rounded rectangle with slightly darker background than card.
+- Wire totals to store and update when session completion logic triggers.
+
+Testing notes:
+- Unit tests: verify totals update when simulated session completion occurs.
+- Visual QA for alignment and typography.
