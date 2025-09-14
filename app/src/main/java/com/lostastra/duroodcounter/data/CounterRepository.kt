@@ -14,6 +14,7 @@ interface CounterRepository {
     suspend fun increment()
     suspend fun decrement()
     suspend fun reset()
+    suspend fun incrementBy(amount: Int)
 }
 
 class DefaultCounterRepository(
@@ -25,22 +26,27 @@ class DefaultCounterRepository(
     }
 
     override suspend fun increment() {
-        local.updateAtomic(timestampMs = System.currentTimeMillis()) { count, sets ->
-            if (count >= 99) 0 to (sets + 1) else (count + 1) to sets
-        }
+        incrementBy(1)
     }
 
     override suspend fun decrement() {
         local.updateAtomic(timestampMs = System.currentTimeMillis()) { count, sets ->
-            when {
-                count > 0 -> (count - 1) to sets
-                count == 0 && sets > 0 -> 99 to (sets - 1)
-                else -> 0 to 0
-            }
+            (count - 1).coerceAtLeast(0) to sets
         }
     }
 
     override suspend fun reset() {
         local.setValues(count = 0, completedSets = 0, timestampMs = System.currentTimeMillis())
+    }
+
+    override suspend fun incrementBy(amount: Int) {
+        local.updateAtomic(timestampMs = System.currentTimeMillis()) { count, sets ->
+            val newCount = count + amount
+            if (newCount >= 100) {
+                (newCount % 100) to (sets + newCount / 100)
+            } else {
+                newCount to sets
+            }
+        }
     }
 }

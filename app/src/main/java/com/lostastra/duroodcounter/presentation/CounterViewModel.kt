@@ -40,6 +40,13 @@ class CounterViewModel(
         viewModelScope.launch { repository.increment() }
     }
 
+    fun onIncrementBy(amount: Int) {
+        viewModelScope.launch { repository.incrementBy(amount) }
+    }
+
+    fun onBulkPlus10() = onIncrementBy(10)
+    fun onBulkPlus33() = onIncrementBy(33)
+
     fun onDecrement() {
         viewModelScope.launch { repository.decrement() }
     }

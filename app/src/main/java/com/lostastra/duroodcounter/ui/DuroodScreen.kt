@@ -2,6 +2,7 @@ package com.lostastra.duroodcounter.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -22,6 +23,7 @@ import com.lostastra.duroodcounter.presentation.CounterViewModel
 import com.lostastra.duroodcounter.ui.components.CounterCard
 import com.lostastra.duroodcounter.ui.components.HeaderArabic
 import com.lostastra.duroodcounter.ui.components.PrimaryButton
+import com.lostastra.duroodcounter.ui.components.ActionButton
 import com.lostastra.duroodcounter.di.AppModule
 
 @Composable
@@ -68,11 +70,55 @@ fun DuroodScreen(
                 )
             }
 
-            PrimaryButton(
-                onClick = { viewModel.onIncrement() },
-                hapticsEnabled = true,
-                onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) }
-            )
+            // Controls row: -1 and +1
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                ActionButton(
+                    label = "-1",
+                    onClick = { viewModel.onDecrement() },
+                    enabled = state.count > 0,
+                    hapticsEnabled = true,
+                    onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) },
+                    contentDesc = "minus one decrement",
+                    testTag = "action-minus1"
+                )
+                PrimaryButton(
+                    onClick = { viewModel.onIncrement() },
+                    hapticsEnabled = true,
+                    onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) }
+                )
+            }
+
+            // Bulk controls row: +10 and +33
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 12.dp, bottom = 4.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                ActionButton(
+                    label = "+10",
+                    onClick = { viewModel.onBulkPlus10() },
+                    hapticsEnabled = true,
+                    onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) },
+                    contentDesc = "plus ten increment",
+                    testTag = "action-plus10"
+                )
+                ActionButton(
+                    label = "+33",
+                    onClick = { viewModel.onBulkPlus33() },
+                    hapticsEnabled = true,
+                    onHaptic = { haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) },
+                    contentDesc = "plus thirty three increment",
+                    testTag = "action-plus33"
+                )
+            }
         }
     }
 }
