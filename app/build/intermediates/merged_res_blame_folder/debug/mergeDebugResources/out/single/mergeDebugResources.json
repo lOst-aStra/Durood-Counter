@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.lostastra.duroodcounter.app-debug-50:/font_notonaskharabic_semibold.ttf.flat",
+        "source": "com.lostastra.duroodcounter.app-main-52:/font/notonaskharabic_semibold.ttf"
+    },
+    {
+        "merged": "com.lostastra.duroodcounter.app-debug-50:/font_nunito_semibold.ttf.flat",
+        "source": "com.lostastra.duroodcounter.app-main-52:/font/nunito_semibold.ttf"
+    }
+]
