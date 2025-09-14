@@ -1,16 +1,14 @@
 package com.lostastra.duroodcounter.di
 
+import android.content.Context
 import com.lostastra.duroodcounter.data.CounterRepository
+import com.lostastra.duroodcounter.data.DefaultCounterRepository
+import com.lostastra.duroodcounter.data.datastore.CounterLocalDataSource
 
 object AppModule {
-    // Minimal manual DI. Replace with real implementations in later stories.
-    fun provideCounterRepository(): CounterRepository = InMemoryCounterRepository()
-}
-
-private class InMemoryCounterRepository : CounterRepository {
-    private var count: Int = 0
-    override suspend fun getCount(): Int = count
-    override suspend fun setCount(value: Int) {
-        count = value
-    }
+    // Manual DI providers
+    fun provideCounterRepository(context: Context): CounterRepository =
+        DefaultCounterRepository(
+            local = CounterLocalDataSource(context.applicationContext)
+        )
 }

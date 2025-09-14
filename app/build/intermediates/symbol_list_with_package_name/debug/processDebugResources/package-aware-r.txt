@@ -167,6 +167,7 @@ layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
 string androidx_startup
+string app_name
 string autofill
 string call_notification_answer_action
 string call_notification_answer_video_action
@@ -180,6 +181,7 @@ string close_sheet
 string default_error_message
 string default_popup_window_title
 string dropdown_menu
+string durood_shareef_full
 string in_progress
 string indeterminate
 string m3c_bottom_sheet_collapse_description

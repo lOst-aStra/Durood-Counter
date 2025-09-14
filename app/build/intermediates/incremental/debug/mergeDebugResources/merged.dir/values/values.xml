@@ -99,6 +99,7 @@
     <integer name="m3c_window_layout_in_display_cutout_mode">1</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <string name="androidx_startup" translatable="false">androidx.startup</string>
+    <string name="app_name">DuroodCounter</string>
     <string name="autofill">Autofill</string>
     <string name="call_notification_answer_action">Answer</string>
     <string name="call_notification_answer_video_action">Video</string>
@@ -112,6 +113,7 @@
     <string name="default_error_message">"Invalid input"</string>
     <string name="default_popup_window_title" ns1:ignore="ExtraTranslation">"Pop-Up Window"</string>
     <string name="dropdown_menu">"Dropdown menu"</string>
+    <string name="durood_shareef_full">اَللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَّعَلَى آلِ مُحَمَّدٍ وَبَارِكْ وَسَلِّمْ</string>
     <string name="in_progress">In progress</string>
     <string name="indeterminate">Partially checked</string>
     <string name="m3c_bottom_sheet_collapse_description">Collapse bottom sheet</string>
