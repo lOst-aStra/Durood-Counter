@@ -107,14 +107,11 @@ fun DuroodScreen(
                 )
             }
 
-            // Spacer to push controls to bottom
-            Spacer(modifier = Modifier.weight(1f))
-
             // Controls row: -1 (left below Total Tasbih) and +1 (right below Total Recitations)
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 8.dp),
+                    .padding(top = 24.dp, bottom = 16.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -128,9 +125,9 @@ fun DuroodScreen(
                     testTag = "action-minus1",
                     backgroundColor = Color(0xFFE74C3C), // Red
                     contentColor = Color.White,
-                    width = 60.dp,
-                    height = 40.dp,
-                    shape = RoundedCornerShape(12.dp),
+                    width = 100.dp,
+                    height = 70.dp,
+                    shape = RoundedCornerShape(20.dp),
                     fontSizeSp = 16
                 )
                 ActionButton(
@@ -142,9 +139,9 @@ fun DuroodScreen(
                     testTag = "action-plus1",
                     backgroundColor = Color(0xFF3498DB), // Blue
                     contentColor = Color.White,
-                    width = 60.dp,
-                    height = 40.dp,
-                    shape = RoundedCornerShape(12.dp),
+                    width = 100.dp,
+                    height = 70.dp,
+                    shape = RoundedCornerShape(20.dp),
                     fontSizeSp = 16
                 )
             }
@@ -153,7 +150,7 @@ fun DuroodScreen(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 12.dp, bottom = 4.dp),
+                    .padding(top = 16.dp, bottom = 16.dp),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -167,9 +164,9 @@ fun DuroodScreen(
                         testTag = "action-plus10",
                         backgroundColor = Color(0xFF1ABC9C), // Teal
                         contentColor = Color.White,
-                        width = 70.dp,
-                        height = 40.dp,
-                        shape = RoundedCornerShape(12.dp),
+                        width = 90.dp,
+                        height = 60.dp,
+                        shape = RoundedCornerShape(20.dp),
                         fontSizeSp = 16
                     )
                     ActionButton(
@@ -181,19 +178,21 @@ fun DuroodScreen(
                         testTag = "action-plus33",
                         backgroundColor = Color(0xFF8E44AD), // Violet
                         contentColor = Color.White,
-                        width = 70.dp,
-                        height = 40.dp,
-                        shape = RoundedCornerShape(12.dp),
+                        width = 90.dp,
+                        height = 60.dp,
+                        shape = RoundedCornerShape(20.dp),
                         fontSizeSp = 16
                     )
                 }
             }
 
+            Spacer(modifier = Modifier.weight(1f))
+            
             // Reset button below all, centered
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 4.dp),
+                    .padding(vertical = 16.dp),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -206,9 +205,9 @@ fun DuroodScreen(
                     testTag = "action-reset",
                     backgroundColor = Color(0xFFF39C12), // Orange
                     contentColor = Color.White,
-                    width = 96.dp,
-                    height = 40.dp,
-                    shape = RoundedCornerShape(12.dp),
+                    width = 120.dp,
+                    height = 50.dp,
+                    shape = RoundedCornerShape(25.dp),
                     fontSizeSp = 14
                 )
             }
