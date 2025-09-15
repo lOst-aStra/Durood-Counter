@@ -99,14 +99,14 @@ fun DuroodScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 StatCard(
-                    label = "Total Tasbih",
+                    label = "Total Recitations",
                     value = totalTasbih,
                     backgroundColor = Color(0xFFEBF5FB),
                     textColor = Color(0xFF1B4F72),
                     modifier = Modifier.weight(1f)
                 )
                 StatCard(
-                    label = "Total Recitations",
+                    label = "Total Tasbih",
                     value = totalRecitations,
                     backgroundColor = Color(0xFFF5EBF9),
                     textColor = Color(0xFF4A235A),
