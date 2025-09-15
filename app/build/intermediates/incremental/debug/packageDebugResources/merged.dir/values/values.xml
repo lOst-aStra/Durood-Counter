@@ -4,7 +4,7 @@
     <string name="cd_icon_crescent">crescent moon icon</string>
     <string name="cd_icon_star">star icon</string>
     <string name="durood_shareef_full">اَللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَّعَلَى آلِ مُحَمَّدٍ وَبَارِكْ وَسَلِّمْ</string>
-    <string name="durood_shareef_title">Durud Shareef</string>
+    <string name="durood_shareef_title">Durood Shareef</string>
     <style name="Theme.DuroodCounter" parent="android:Theme.Material.Light.NoActionBar">
         
         <item name="android:statusBarColor">@android:color/transparent</item>
