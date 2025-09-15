@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -71,6 +72,8 @@ fun DuroodScreen(
                 modifier = Modifier.fillMaxWidth()
             )
 
+            Spacer(modifier = Modifier.height(32.dp)) // Increased spacing after header
+            
             // Progress tracking cards (Story 2)
             val currentTasbih = state.count
             val totalTasbih = state.completedSets * 100 + state.count
@@ -84,7 +87,7 @@ fun DuroodScreen(
                 textColor = Color(0xFF145A32),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 8.dp)
+                    .padding(top = 16.dp) // Increased top padding for the first card
             )
 
             // Row with Total Tasbih and Total Recitations
@@ -115,7 +118,7 @@ fun DuroodScreen(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 50.dp, bottom = 16.dp),
+                    .padding(top = 80.dp, bottom = 24.dp), // Increased top padding and bottom margin
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -154,7 +157,7 @@ fun DuroodScreen(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 16.dp, bottom = 16.dp),
+                    .padding(top = 24.dp, bottom = 24.dp), // Increased vertical padding
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
